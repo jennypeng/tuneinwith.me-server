@@ -3,14 +3,12 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 
+// set database dependencies.
 var Firebase = require('firebase');
 var myRootRef = new Firebase('https://livedj01.firebaseio.com/');
-// myRootRef.set("hello world!");
 
-
-
+//route express
 var app = express();
-
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -28,19 +26,15 @@ app.use(express.static(path.join(__dirname, 'routes')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-// get started
+
+// get started page
 app.get('/', routes.index);
+
 // view room
 app.get('/rooms/:roomid', routes.room);
+
 //change room
 app.post('/change', routes.changeRoom);
-
-
-// post song request
-// app.post('/addpost', routes.addpost(db));
-// app.post('/post/:id/addreply', routes.addreply(db));
-// app.get('/posts/p/:page', routes.pPosts(db, ppp));
-// app.get('/post/:id/:file', routes.dlPosts(db));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
