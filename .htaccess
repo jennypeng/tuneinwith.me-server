@@ -1,0 +1,11 @@
+RewriteEngine On
+Options All
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets / [R,L]
+
+RewriteRule ^$ assets/pages/home.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*) assets/pages/room.html [L]
