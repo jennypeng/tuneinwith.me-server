@@ -114,6 +114,7 @@ img.album {
 }
 #searchDiv{
     margin: 10px;
+    padding-bottom: 10px;
 }
 
 .searchResult:hover{
