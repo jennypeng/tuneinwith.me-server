@@ -1,11 +1,83 @@
-extends layout
-
-block content
-  // h1= title
-  p Welcome to #{title}
-  h2 Quickstart Guide!
-  ol
-    li Install the tuneinwith.me Spotify app.
-    li Choose a room name and switch rooms.
-    li Share the resulting link with your friends!
-    li Search and queue music from the app or website and get playing!
+doctype html
+html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='shortcut icon', href='../../docs-assets/ico/favicon.png')
+    title tuneinwith.me!
+    link(href='/styles/bootstrap.min.css', rel='stylesheet', type='text/css')
+    link(href='/fonts/fonts.css', rel='stylesheet', type='text/css')
+    link(href='/styles/style.css', rel='stylesheet', type='text/css')
+    link(href='/styles/index.css', rel='stylesheet', type='text/css')
+    //Custom styles for this template 
+    link(href='jumbotron.css', rel='stylesheet')
+  body
+    .navbar.navbar-inverse.navbar-fixed-top(role='navigation', style='display: none;')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Project name
+        .navbar-collapse.collapse
+          form.navbar-form.navbar-right(role='form')
+            .form-group
+              input.form-control(type='text', placeholder='Email')
+            .form-group
+              input.form-control(type='password', placeholder='Password')
+            button.btn.btn-success(type='submit') Sign in
+        //
+          /.navbar-collapse 
+    //
+       Main jumbotron for a primary marketing message or call to action 
+    .jumbotron
+      .container
+        img.pull-right(src='/images/screenshot.png', style='max-height: 300px;')
+        h1(style='font-weight: normal;')
+          a(href='/')
+            | tune in with.
+            img#logo(style='height: 1.2em; vertical-align: text-bottom;', src='/images/listenwithme-white-mono.png')
+        p
+          | Friends let friends choose songs. Tune in with me for a democratic party music experience.
+        p
+          button.btn.btn-primary.btn-lg(disabled='disabled', role='button') Get Started »
+        p
+          small tuneinwith.me is closed alpha right now. Check back soon!
+    .container
+      .row
+        .col-md-4
+          h2 What’s this?
+          p
+            | tuneinwith.me is a real-time collaborative music streaming web app that allows all Spotify desktop users to create private listening parties. Friends can simply visit a tuneinwith.me URL on their phones to add a song to the playing queue.
+          p
+            a.btn.btn-default(href='#', role='button') View details »
+        .col-md-4
+          h2 Quickstart
+          ol
+            li Install the tuneinwith.me Spotify app.
+            li Choose a room name and switch rooms.
+            li Share the resulting link with your friends.
+            li Search and queue music from the app or website and get playing!
+        .col-md-4
+          h2 About the Project
+          p
+            | tuneinwith.me was created at hackTECH 2014 by a group of UC Berkeley students with a passion for listening to music and being choosy about it. We’re so excited about our hack that we’re going to make this a real thing!
+          p
+            a.btn.btn-default(href='https://www.hackerleague.org/hackathons/hacktech/hacks/tuneinwith-dot-me', role='button') Hack page »
+      hr
+      footer
+        p
+          | © 2014. Background photo
+          a(href='http://creativecommons.org/licenses/by-sa/2.0/') CC-BY-SA
+          a(href='http://www.flickr.com/photos/pokpok/114311823') pokpok/Flickr
+          | .
+    //
+       /container 
+    script(src='/scripts/firebase.js', type='text/javascript')
+    script(src='/scripts/jquery.min.js', type='text/javascript')
+    script(src='/scripts/main.js', type='text/javascript')
